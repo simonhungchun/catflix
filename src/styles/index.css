@@ -1,3 +1,9 @@
+body {
+  background-color: #f2f6fa;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  margin: 0;
+}
 .header {
   display: flex;
   align-items: center;
@@ -5,6 +11,11 @@
   margin: 0px 80px;
   padding: 48px 32px;
   box-sizing: border-box;
+}
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 48px 0;
+  }
 }
 .header-logo {
   width: 120px;
@@ -16,7 +27,7 @@
   padding: 4px;
   border-radius: 21px;
   box-sizing: border-box;
-  background-color: #d5d8ed;
+  background-color: rgba(213, 216, 237, 0.4);
   cursor: pointer;
 }
 .header-menu__item {
@@ -40,28 +51,42 @@
   align-items: center;
 }
 .header-r__search {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 126px;
+  width: 100px;
   height: 48px;
   border-radius: 24px;
-  border: 1px solid #999;
+  border: 1px solid #64748b33;
   box-sizing: border-box;
+  background-color: #64748b1a;
 }
-.header-r__search > img {
-  width: 20px;
+@media screen and (max-width: 1024px) {
+  .header-r__search {
+    display: none;
+  }
+}
+.header-r__search:hover {
+  background-color: #000;
+  color: #fff !important;
 }
 .header-r__profile {
+  cursor: pointer;
   width: 48px;
   height: 48px;
   border-radius: 24px;
-  border: 1px solid #999;
+  border: 1px solid #64748b33;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   margin-left: 20px;
+  background-color: #64748b1a;
+}
+.header-r__profile:hover {
+  background-color: #000;
+  color: #fff !important;
 }
 .header-r__profile > img {
   width: 20px;
@@ -70,7 +95,7 @@
 /* 当屏幕尺寸小于770px container的宽度就是屏幕的宽 */
 /* 当屏幕尺寸大于等于于770px container的宽度就是770px */
 .container {
-  height: 400px;
+  /* height: 400px; */
   margin: auto;
 }
 .container-top {
@@ -95,20 +120,33 @@
   width: 100%;
   height: 48px;
   border-radius: 24px;
-  border: 1px solid #333;
+  border: 1px solid rgb(229, 231, 235);
   display: flex;
   align-items: center;
   overflow: hidden;
   box-sizing: border-box;
+  background-color: #fff;
+  transition: all ease-in 200ms;
+}
+.search:focus-within {
+  outline: 2px solid #cbd5e1;
+  border-color: #cbd5e1;
 }
 .search-prefix {
   margin: 12px;
   width: 20px;
+  color: #64748b;
 }
 .search-input {
   flex: 1;
   border: none;
   outline: none;
+  color: #64748b;
+  font-size: 16px;
+}
+.search-input::placeholder {
+  color: #64748b;
+  font-size: 16px;
 }
 
 .btn-black {
@@ -141,51 +179,98 @@
   }
 }
 
-.tabbar {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 64px;
-  background-color: pink;
-}
-
 @media screen and (max-width: 1024px) {
   .header-menu {
     display: none;
   }
-  .tabbar {
-    display: flex;
-  }
 }
-
-/* .container {
-  width: 1400px;
-  background-color: orange;
-  height: 300px;
-} */
+.qa {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 160px;
+}
+.qa-question {
+  font-size: 30px;
+}
+.qa-answer {
+  font-size: 16px;
+}
 .container-panel {
-  border: 2px solid red;
+  border: 2px solid rgb(203, 213, 225);
+  border-radius: 8px;
+  margin-top: 20px;
 }
 .container-panel > label {
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  height: 68px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 20px 24px;
+  box-sizing: border-box;
 }
-.container-panel > label > img {
-  width: 20px;
+.container-panel > label > svg {
   transition: all ease-in-out 300ms;
 }
 .container-panel > div {
   height: 0;
   overflow: hidden;
+  padding: 0 24px;
+  line-height: 24px;
   transition: height ease-in 200ms;
 }
-#toggle:checked ~ label > img {
+#toggle:checked ~ label > svg {
   transform: rotate(45deg);
+  color: #0891b2;
 }
 #toggle:checked ~ div {
-  height: 100px;
+  height: 64px;
+}
+
+.footer {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 130px;
+  justify-content: space-around;
+}
+.footer a:link {
+  color: #64748b;
+}
+.footer-links > a:link {
+  margin: 0 10px;
+  color: #000;
+}
+.footer-copyright > * {
+  font-size: 14px;
+  margin: 0 10px;
+}
+.tabbar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  width: 100vw;
+  height: 64px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.tabbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media screen and (max-width: 1024px) {
+  .tabbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+  }
 }
