@@ -2,7 +2,7 @@ body {
   background-color: #f2f6fa;
   padding-bottom: 80px;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 18px;
 }
 .header {
   display: flex;
@@ -97,6 +97,7 @@ body {
 .container {
   /* height: 400px; */
   margin: auto;
+  min-width: 550px;
 }
 .container-top {
   display: flex;
@@ -254,17 +255,13 @@ body {
 .tabbar {
   display: none;
   position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
   z-index: 99;
   width: 100vw;
   height: 64px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
-.tabbar-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
 }
 @media screen and (max-width: 1024px) {
   .tabbar {
@@ -272,5 +269,18 @@ body {
     align-items: center;
     justify-content: space-around;
     background-color: #fff;
+  }
+  .tabbar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+  }
+  .tabbar-item > input:checked ~ svg {
+    color: #207ee1;
+  }
+  .tabbar-item > input:checked ~ span {
+    color: #207ee1;
   }
 }
