@@ -1,0 +1,191 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 80px;
+  padding: 48px 32px;
+  box-sizing: border-box;
+}
+.header-logo {
+  width: 120px;
+  height: 27px;
+}
+.header-menu {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 21px;
+  box-sizing: border-box;
+  background-color: #d5d8ed;
+  cursor: pointer;
+}
+.header-menu__item {
+  align-items: center;
+  border-radius: 20px;
+  display: flex;
+  font-weight: 500;
+  gap: 12px;
+  justify-content: center;
+  line-height: 20px;
+  padding: 8px 24px;
+}
+.header-menu__item:hover {
+  background-color: #fff;
+}
+.header-menu__item > img {
+  width: 20px;
+}
+.header-r {
+  display: flex;
+  align-items: center;
+}
+.header-r__search {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 126px;
+  height: 48px;
+  border-radius: 24px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+}
+.header-r__search > img {
+  width: 20px;
+}
+.header-r__profile {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+.header-r__profile > img {
+  width: 20px;
+}
+
+/* 当屏幕尺寸小于770px container的宽度就是屏幕的宽 */
+/* 当屏幕尺寸大于等于于770px container的宽度就是770px */
+.container {
+  height: 400px;
+  margin: auto;
+}
+.container-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 351px;
+}
+.brand-logo {
+  width: 256px;
+  height: 60px;
+}
+.brand-slogen {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  margin-top: 24px;
+}
+.search {
+  width: 100%;
+  height: 48px;
+  border-radius: 24px;
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.search-prefix {
+  margin: 12px;
+  width: 20px;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.btn-black {
+  padding: 8px 24px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 24px;
+  background-color: #000;
+  border: none;
+  outline: transparent solid 3px;
+  color: #fff;
+  cursor: pointer;
+}
+.btn-black:hover {
+  background-color: #000000cc;
+}
+.btn-black:active {
+  background-color: #000;
+  outline: #888 solid 3px;
+}
+
+@media screen and (max-width: 770px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 771px) {
+  .container {
+    width: 770px;
+  }
+}
+
+.tabbar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  background-color: pink;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-menu {
+    display: none;
+  }
+  .tabbar {
+    display: flex;
+  }
+}
+
+/* .container {
+  width: 1400px;
+  background-color: orange;
+  height: 300px;
+} */
+.container-panel {
+  border: 2px solid red;
+}
+.container-panel > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.container-panel > label > img {
+  width: 20px;
+  transition: all ease-in-out 300ms;
+}
+.container-panel > div {
+  height: 0;
+  overflow: hidden;
+  transition: height ease-in 200ms;
+}
+#toggle:checked ~ label > img {
+  transform: rotate(45deg);
+}
+#toggle:checked ~ div {
+  height: 100px;
+}
